@@ -25,18 +25,10 @@ struct List {
  * AI Use: Written by own
  */
 List *list_create(ListType type) {
-    if (type != LIST_LINKED_SENTINEL) {
-        return NULL;
-    }
-
     List *list = malloc(sizeof(List));
 
     // Create sentinel node
     list->head = malloc(sizeof(Node));
-    if (!list->head) {
-        free(list);
-        return NULL;
-    }
 
     list->head->data = NULL;
     list->head->next = list->head;  // Points to itself when empty
